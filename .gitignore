@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+dist
+
+# IDE
+/app/.idea
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+# Mac os ds_store
+.DS_Store
+
+#other
+.env

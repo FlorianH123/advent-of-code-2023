@@ -1,0 +1,7 @@
+# Linter
+'{apps,libs,interfaces}/**/src/**/*.{ts,tsx}':
+    - npx eslint --fix --max-warnings 0
+
+# Formatting
+'*':
+    - prettier --write --ignore-unknown
