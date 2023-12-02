@@ -79,7 +79,7 @@ module.exports = {
                 ],
                 'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
                 'unused-imports/no-unused-imports-ts': 'warn',
-                'no-console': 'warn',
+                'no-console': 'off',
                 eqeqeq: ['error', 'always', { null: 'ignore' }],
             },
         },
