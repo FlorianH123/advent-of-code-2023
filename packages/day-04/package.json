@@ -1,0 +1,10 @@
+{
+    "name": "day-04",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "rimraf dist && tsc",
+        "start": "node --no-warnings --loader ts-node/esm src/main.ts"
+    }
+}
