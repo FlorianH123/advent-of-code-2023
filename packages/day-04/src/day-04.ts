@@ -1,4 +1,4 @@
-import { replaceWhitespace, substringAfter } from 'utils';
+import { replaceWhitespace, substringAfter, sum } from 'utils';
 
 export async function firstPuzzle(input: string[]): Promise<string> {
     const cards = input.map((line) => Card.from(line));
@@ -8,30 +8,23 @@ export async function firstPuzzle(input: string[]): Promise<string> {
 export async function secondPuzzle(input: string[]): Promise<string> {
     const originalCards = input.map((line) => Card.from(line));
 
-    const originalAndCopyCards = new Map<number, Card[]>();
+    const cardCounter = Array<number>(originalCards.length).fill(1);
 
-    for (const [index, card] of originalCards.entries()) {
-        originalAndCopyCards.set(index, [card]);
-    }
+    for (const [index, cardCount] of cardCounter.entries()) {
+        const totalWins = originalCards[index]!.getYourWinningNumbers().length;
 
-    for (const [index, cards] of originalAndCopyCards.entries()) {
-        for (const card of cards) {
-            const totalWins = card.getYourWinningNumbers().length;
+        for (let i = 0; i < totalWins; i++) {
+            const insertIndex = index + i + 1;
 
-            for (let i = 0; i < totalWins; i++) {
-                const nextIndex = index + i + 1;
-                if (nextIndex >= originalCards.length) {
-                    break;
-                }
-
-                originalAndCopyCards.get(nextIndex)!.push(originalCards[nextIndex]!);
+            if (insertIndex >= originalCards.length) {
+                break;
             }
+
+            cardCounter[insertIndex] += cardCount;
         }
     }
 
-    return Array.from(originalAndCopyCards.values())
-        .reduce((totalCards, cards) => totalCards + cards.length, 0)
-        .toString();
+    return cardCounter.reduce(sum).toString();
 }
 
 export class Card {
