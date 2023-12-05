@@ -17,7 +17,8 @@
         "packages/day-01",
         "packages/day-02",
         "packages/day-03",
-        "packages/day-04"
+        "packages/day-04",
+        "packages/day-05"
     ],
     "devDependencies": {
         "@types/jest": "^29.5.10",
