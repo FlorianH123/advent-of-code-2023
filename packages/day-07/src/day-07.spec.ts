@@ -1,24 +1,24 @@
 import { readInputLines } from 'utils';
 
-import { firstPuzzle, secondPuzzle } from './day-06.js';
+import { firstPuzzle, secondPuzzle } from './day-07.js';
 
-describe('day 06', () => {
+describe('day 07', () => {
     describe('first puzzle', () => {
-        it('should return 288', async () => {
+        it('should return 6440', async () => {
             const path = new URL('../resources/puzzle-1-example-input.txt', import.meta.url);
-            const input = await readInputLines(path, { removeEmptyLines: false });
+            const input = await readInputLines(path);
             const result = await firstPuzzle(input);
 
-            expect(result).toEqual('288');
+            expect(result).toEqual('6440');
         });
     });
     describe('second puzzle', () => {
-        it('should return 71503', async () => {
+        it('should return 5905', async () => {
             const path = new URL('../resources/puzzle-2-example-input.txt', import.meta.url);
-            const input = await readInputLines(path, { removeEmptyLines: false });
+            const input = await readInputLines(path);
             const result = await secondPuzzle(input);
 
-            expect(result).toEqual('71503');
+            expect(result).toEqual('5905');
         });
     });
 });
